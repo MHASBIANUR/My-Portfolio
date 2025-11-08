@@ -52,7 +52,7 @@ export default function Hero() {
         <div className="flex justify-center md:hidden mt-8">
           <div className="relative w-64 h-80 sm:w-72 sm:h-96">
             <Image
-              src="/-myfoto.jpg"
+              src="/myfotoo.jpg"
               alt="Profile"
               fill
               className="object-contain rounded-2xl shadow-md"
