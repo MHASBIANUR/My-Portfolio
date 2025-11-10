@@ -19,7 +19,7 @@ export default function Project() {
       src: "/project2.jpg",
       title: "MediMine",
       desc: "AI Integration App",
-      link: "#",
+      link: "https://medimine-frontend.vercel.app/",
     },
     {
       src: "/project3.jpg",
@@ -31,7 +31,7 @@ export default function Project() {
       src: "/projectt4.jpg",
       title: "My Portfolio",
       desc: "Portfolio Web",
-      link: "#",
+      link: "https://web-personal-eosin.vercel.app/",
     },
   ];
 
