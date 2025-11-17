@@ -15,7 +15,7 @@ export default function Hero() {
         px-6 md:px-20 pt-32 md:pt-44 pb-20 md:pb-28 w-full gap-10 md:gap-16
         font-['Poppins',sans-serif]
         transition-colors duration-300
-        ${theme === "dark" ? "bg-black text-white" : "bg-[#f4f7f8] text-black"}`}
+        ${theme === "dark" ? "bg-gray-800 text-white" : "bg-[#f4f7f8] text-black"}`}
     >
       {/* TEXT SECTION */}
       <div className="max-w-xl text-center md:text-left flex-1 space-y-4 order-2 md:order-1">

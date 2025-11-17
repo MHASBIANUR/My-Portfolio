@@ -53,7 +53,7 @@ export default function About() {
       id="about"
       className={`relative min-h-screen flex flex-col justify-center py-20 px-6 sm:px-10 md:px-20 overflow-hidden
         transition-colors duration-300
-        ${theme === "dark" ? "bg-black text-gray-200" : "bg-white text-black"}`}
+        ${theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-white text-black"}`}
     >
       {/* Background blur */}
       <div
@@ -78,6 +78,7 @@ export default function About() {
 
       {/* Content Section */}
       <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-16">
+        
         {/* Text */}
         <motion.div
           className="flex-1 text-justify text-base sm:text-lg leading-relaxed space-y-5"
@@ -99,10 +100,9 @@ export default function About() {
           <div className="mt-8">
             <button
               className={`border px-8 py-3 rounded-none uppercase tracking-[2px] font-semibold transition-all duration-300
-                ${
-                  theme === "dark"
-                    ? "border-white text-white hover:bg-white hover:text-[#0c1618]"
-                    : "border-[#0c1618] text-[#0c1618] hover:bg-[#0c1618] hover:text-white"
+                ${theme === "dark"
+                  ? "border-white text-white hover:bg-white hover:text-[#0c1618]"
+                  : "border-[#0c1618] text-[#0c1618] hover:bg-[#0c1618] hover:text-white"
                 }`}
             >
               Download CV
@@ -112,7 +112,16 @@ export default function About() {
 
         {/* Tech Icons */}
         <motion.div
-          className="flex-1 grid grid-cols-3 sm:grid-cols-4 md:grid-cols-3 gap-6 justify-items-center"
+          className="
+            flex-1 
+            grid 
+            grid-cols-3 
+            xs:grid-cols-3
+            sm:grid-cols-4 
+            md:grid-cols-3 
+            gap-4 sm:gap-6 
+            justify-items-center
+          "
           initial={{ opacity: 0, x: 40 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -121,15 +130,21 @@ export default function About() {
           {techIcons.map((tech, i) => (
             <motion.div
               key={i}
-              className={`flex flex-col items-center gap-2 p-4 rounded-xl shadow-sm hover:shadow-md transition-all hover:scale-105
-                ${theme === "dark" ? "bg-[#13282c]" : "bg-[#f9fafb]"}`}
-              whileHover={{ scale: 1.08 }}
+              whileHover={{ scale: 1.06 }}
+              className={`
+                flex flex-col items-center justify-center 
+                w-full h-24 sm:h-32
+                rounded-xl shadow-sm hover:shadow-md 
+                transition-all 
+                ${theme === "dark" ? "bg-[#13282c]" : "bg-[#f9fafb]"}
+              `}
             >
-              <div className="text-4xl sm:text-5xl">{tech.icon}</div>
-              <p className="text-sm sm:text-base font-medium">{tech.name}</p>
+              <div className="text-3xl sm:text-5xl mb-1">{tech.icon}</div>
+              <p className="text-sm sm:text-base font-medium text-center">{tech.name}</p>
             </motion.div>
           ))}
         </motion.div>
+
       </div>
 
       {/* What I Do */}
@@ -159,8 +174,11 @@ export default function About() {
                   alt={service.title}
                   width={80}
                   height={80}
-                  className="object-contain"
+                  className={`object-contain transition-all duration-300
+                    ${theme === "dark" ? "invert brightness-0" : ""}
+                  `}
                 />
+
               </div>
               <h4 className="text-xl font-semibold mb-3">{service.title}</h4>
               <p className="text-base leading-relaxed">{service.desc}</p>

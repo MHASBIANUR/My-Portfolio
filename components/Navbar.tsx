@@ -38,16 +38,17 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ✅ Background sesuai Hero
-  const heroBg = theme === "dark" ? "bg-black" : "bg-[#f4f7f8]";
-  // ✅ Sticky background
+  // Background hero
+  const heroBg = theme === "dark" ? "bg-gray-800" : "bg-[#f4f7f8]";
+
+  // Sticky background
   const stickyBg =
     theme === "dark"
-      ? "bg-black/90 backdrop-blur-md shadow-md"
+      ? "bg-gray-800/90 backdrop-blur-md shadow-md"
       : "bg-white/90 backdrop-blur-md shadow-md";
 
   const headerBg = isSticky ? stickyBg : heroBg;
-  const textColor = theme === "dark" ? "text-[#f4f7f8]" : "text-black";
+  const textColor = theme === "dark" ? "text-white" : "text-black";
 
   return (
     <header
@@ -55,9 +56,7 @@ export default function Navbar() {
     >
       <nav className="flex items-center justify-between py-5 px-6 md:px-20 max-w-[1400px] mx-auto">
         {/* Logo */}
-        <h1
-          className={`text-2xl tracking-[3px] transition-colors duration-300 ${textColor}`}
-        >
+        <h1 className={`text-2xl tracking-[3px] font-semibold ${textColor}`}>
           M.H
         </h1>
 
@@ -69,19 +68,17 @@ export default function Navbar() {
             {navItems.map((item) => {
               const id = item.toLowerCase();
               const isActive = activeSection === id;
+
               return (
                 <li key={item} className="relative group">
                   <Link
                     href={`#${id}`}
-                    className={`transition-all duration-300 pb-1 ${
-                      isActive
-                        ? "text-[#6f1d1b]"
-                        : "hover:text-[#6f1d1b]"
-                    }`}
+                    className="transition-all duration-300 pb-1"
                   >
                     {item}
                     <span
-                      className={`absolute left-0 -bottom-1 h-0.5 rounded-full transition-all duration-300 ${
+                      className={`absolute left-0 -bottom-1 h-0.5 rounded-full transition-all duration-300
+                      ${
                         isActive
                           ? "w-full bg-[#6f1d1b]"
                           : "w-0 bg-[#6f1d1b] group-hover:w-full"
@@ -112,25 +109,33 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu — SAME STYLE AS DESKTOP */}
       {menuOpen && (
-        <div className="md:hidden bg-white/95 dark:bg-[#0c1618]/95 backdrop-blur-md shadow-md absolute top-full left-0 w-full py-6">
+        <div
+          className={`md:hidden absolute top-full left-0 w-full backdrop-blur-md
+          ${theme === "dark" ? "bg-gray-800/95" : "bg-white/95"} shadow-md py-6`}
+        >
           <ul className="flex flex-col items-center gap-6 text-lg font-medium">
             {navItems.map((item) => {
               const id = item.toLowerCase();
               const isActive = activeSection === id;
+
               return (
-                <li key={item}>
+                <li key={item} className="relative group">
                   <Link
                     href={`#${id}`}
                     onClick={() => setMenuOpen(false)}
-                    className={`transition-all duration-300 ${
-                      isActive
-                        ? "text-[#6f1d1b] border-b-2 border-[#6f1d1b]"
-                        : `${textColor} hover:text-[#6f1d1b]`
-                    }`}
+                    className="transition-all duration-300 pb-1"
                   >
                     {item}
+                    <span
+                      className={`absolute left-0 -bottom-1 h-0.5 rounded-full transition-all duration-300
+                      ${
+                        isActive
+                          ? "w-full bg-[#6f1d1b]"
+                          : "w-0 bg-[#6f1d1b] group-hover:w-full"
+                      }`}
+                    />
                   </Link>
                 </li>
               );

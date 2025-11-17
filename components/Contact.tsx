@@ -15,7 +15,7 @@ export default function Contact() {
       id="contact"
       className={`relative min-h-screen flex flex-col justify-center py-16 px-4 sm:px-10 md:px-20 overflow-hidden
         transition-colors duration-300
-        ${isDark ? "bg-black text-gray-200" : "bg-white text-black"}`}
+        ${isDark ? "bg-gray-800 text-gray-200" : "bg-white text-black"}`}
     >
       {/* Heading */}
       <div className="max-w-3xl mx-auto mb-12 text-center">

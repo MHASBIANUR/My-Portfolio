@@ -39,7 +39,7 @@ export default function Project() {
     <section
       id="project"
       className={`relative py-24 w-full overflow-hidden transition-colors duration-500
-        ${theme === "dark" ? "bg-black text-gray-200" : "bg-[#f8fbfc] text-black"}`}
+        ${theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-[#f8fbfc] text-black"}`}
     >
       {/* Background blur */}
       <div

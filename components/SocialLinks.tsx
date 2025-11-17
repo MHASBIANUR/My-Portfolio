@@ -25,7 +25,7 @@ export default function SocialLinks() {
       </a>
 
       <a
-        href="https://www.linkedin.com/in/muhammad-hasbianur-4277361a6/"
+        href="https://www.linkedin.com/in/m-hasbianur/"
         target="_blank"
         rel="noopener noreferrer"
         className="hover:scale-110 transition-transform duration-300"
