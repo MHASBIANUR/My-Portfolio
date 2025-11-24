@@ -28,7 +28,7 @@ export default function Project() {
       link: "https://resumatch-ivory.vercel.app/",
     },
     {
-      src: "/projectt4.jpg",
+      src: "/project4.jpg",
       title: "My Portfolio",
       desc: "Portfolio Web",
       link: "https://web-personal-eosin.vercel.app/",
