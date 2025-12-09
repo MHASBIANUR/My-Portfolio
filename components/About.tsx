@@ -112,15 +112,18 @@ export default function About() {
             across devices and platforms.
           </p>
           <div className="mt-8">
-            <button
+            <a
+              href="/CV.pdf"
+              download="CV-M.Hasbianur.pdf"
               className={`border px-8 py-3 rounded-none uppercase tracking-[2px] font-semibold transition-all duration-300
-                ${theme === "dark"
+                  ${theme === "dark"
                   ? "border-white text-white hover:bg-white hover:text-[#0c1618]"
                   : "border-[#0c1618] text-[#0c1618] hover:bg-[#0c1618] hover:text-white"
                 }`}
             >
               Download CV
-            </button>
+            </a>
+
           </div>
         </motion.div>
 
