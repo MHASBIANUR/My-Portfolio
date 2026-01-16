@@ -1,11 +1,11 @@
 import "./globals.css";
 import Navbar from "../components/Navbar";
-import { Poppins } from "next/font/google";
+import { Bricolage_Grotesque } from "next/font/google";
 import { Providers } from "./providers";
 
-const poppins = Poppins({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 });
 
 export const metadata = {
@@ -20,9 +20,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      {/* ✅ Gunakan class bg-background & text-foreground dari @theme */}
       <body
-        className={`${poppins.className} bg-background text-foreground transition-colors duration-300`}
+        className={`${bricolage.className} bg-background text-foreground transition-colors duration-300`}
       >
         <Providers>
           <Navbar />

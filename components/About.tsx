@@ -147,15 +147,18 @@ export default function About() {
           {techIcons.map((tech, i) => (
             <motion.div
               key={i}
-              whileHover={{ scale: 1.06 }}
+              whileHover={{ scale: 1.05 }}
               className={`
-                flex flex-col items-center justify-center 
-                w-full h-24 sm:h-32
-                rounded-xl shadow-sm hover:shadow-md 
-                transition-all 
-                ${theme === "dark" ? "bg-[#13282c]" : "bg-[#f9fafb]"}
-              `}
+          flex flex-col items-center justify-center
+          w-full h-16 sm:h-20
+          rounded-lg border
+          transition-all
+          ${theme === "dark"
+                        ? "bg-[#13282c] border-white/10"
+                        : "bg-[#f9fafb] border-black/10"}
+        `}
             >
+
               <div className="text-3xl sm:text-5xl mb-1">{tech.icon}</div>
               <p className="text-sm sm:text-base font-medium text-center">{tech.name}</p>
             </motion.div>

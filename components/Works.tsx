@@ -12,25 +12,29 @@ export default function Project() {
     {
       src: "/project1.jpg",
       title: "Taskora",
-      desc: "To-Do App",
+      desc: "Task management app with drag & drop feature.",
+      tools: ["Next.js", "TypeScript", "Tailwind", "PostgreSQL"],
       link: "https://taskora-phi.vercel.app/",
     },
     {
       src: "/project2.jpg",
       title: "MediMine",
-      desc: "AI Integration App",
+      desc: "AI-powered health assistant for symptom analysis.",
+      tools: ["Next.js", "AI API", "Tailwind", "Framer Motion"],
       link: "https://medimine-frontend.vercel.app/",
     },
     {
       src: "/project3.jpg",
       title: "ResuMatch",
-      desc: "Web Development App in Telegram",
+      desc: "Telegram web app to analyze resumes.",
+      tools: ["Next.js", "Telegram API", "AI", "Vercel"],
       link: "https://resumatch-ivory.vercel.app/",
     },
     {
       src: "/project4.jpg",
       title: "My Portfolio",
-      desc: "Portfolio Web",
+      desc: "Personal portfolio showcasing my work.",
+      tools: ["Next.js", "Tailwind", "Framer Motion"],
       link: "https://web-personal-eosin.vercel.app/",
     },
   ];
@@ -38,63 +42,72 @@ export default function Project() {
   return (
     <section
       id="project"
-      className={`relative py-24 w-full overflow-hidden transition-colors duration-500
-        ${theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-[#f8fbfc] text-black"}`}
+      className={`relative min-h-screen w-full py-20 transition-colors duration-500
+    ${theme === "dark" ? "bg-gray-800 text-gray-200" : "bg-[#f8fbfc] text-black"}`}
     >
-      {/* Background blur */}
-      <div
-        className={`absolute top-[-100px] left-[-100px] w-[300px] h-[300px] rounded-full blur-3xl -z-10 opacity-50
-        ${theme === "dark" ? "bg-[#13282c]" : "bg-[#e0f3f7]"}`}
-      />
-      <div
-        className={`absolute -bottom-20 -right-20 w-[400px] h-[400px] rounded-full blur-3xl -z-10 opacity-40
-        ${theme === "dark" ? "bg-[#1a2c2f]" : "bg-[#d6eff5]"}`}
-      />
 
-      <div className="max-w-6xl mx-auto px-6 md:px-12 relative z-10">
+      <div className="max-w-6xl mx-auto px-5 md:px-10">
         {/* Title */}
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-4xl md:text-5xl font-bold mb-4"
+            transition={{ duration: 0.4 }}
+            className="text-3xl md:text-4xl font-bold mb-2"
           >
             Projects
           </motion.h2>
-          <p className="text-lg opacity-80">
-            Some of my featured works and experiments.
+          <p className="text-sm opacity-75">
+            Some featured works I’ve built.
           </p>
         </div>
 
-        {/* Project Grid */}
-        <div className="grid grid-cols-2 gap-4 sm:gap-6">
+        {/* Grid */}
+        <div className="grid grid-cols-2 gap-4 sm:gap-5">
+
           {projects.map((project, index) => (
             <div
               key={index}
-              className={`relative overflow-hidden group rounded-xl shadow-md hover:shadow-2xl transition-all duration-500
-                ${theme === "dark" ? "bg-[#13282c]" : "bg-white"}`}
+              className={`group rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-0.5
+            ${theme === "dark" ? "bg-[#13282c]" : "bg-white"}
+            shadow-sm hover:shadow-md`}
             >
               <Link href={project.link} target="_blank" rel="noopener noreferrer">
-                <div className="relative w-full h-40 sm:h-48 md:h-60">
+                {/* Image */}
+                <div className="relative h-32 sm:h-36 md:h-40 overflow-hidden">
+
                   <Image
                     src={project.src}
                     alt={project.title}
                     fill
-                    className="object-cover rounded-xl transition-transform duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110"
+                    className="object-cover"
                   />
                 </div>
 
-                {/* Overlay */}
-                <div className="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end rounded-xl">
-                  <div className="p-4 sm:p-6 text-white translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                    <h5 className="uppercase tracking-widest font-semibold text-base sm:text-lg mb-1">
-                      {project.title}
-                    </h5>
-                    <p className="text-sm sm:text-base tracking-wide">
-                      {project.desc}
-                    </p>
+                {/* Content */}
+                <div className="p-4">
+                  <h3 className="text-sm sm:text-base font-semibold mb-1">
+                    {project.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm opacity-70 mb-2 line-clamp-2">
+                    {project.desc}
+                  </p>
+
+                  {/* Tools */}
+                  <div className="flex flex-wrap gap-1.5 mb-2">
+                    {project.tools.map((tool, i) => (
+                      <span
+                        key={i}
+                        className="text-[11px] sm:text-xs px-2 py-0.5 rounded-full bg-black/5 dark:bg-white/10"
+                      >
+                        {tool}
+                      </span>
+                    ))}
                   </div>
+                  <span className="text-xs sm:text-sm font-medium text-blue-500">
+                    View →
+                  </span>
                 </div>
               </Link>
             </div>
@@ -102,5 +115,7 @@ export default function Project() {
         </div>
       </div>
     </section>
+
+
   );
 }
