@@ -8,6 +8,7 @@ import {
   FaReact,
   FaNodeJs,
   FaGitAlt,
+  FaPhp,
 } from "react-icons/fa";
 
 import {
@@ -16,7 +17,9 @@ import {
   SiTypescript,
   SiExpress,
   SiPostgresql,
-  SiPrisma
+  SiPrisma,
+  SiLaravel,
+  SiMysql
 } from "react-icons/si";
 
 import { useTheme } from "next-themes";
@@ -25,21 +28,32 @@ import { useTheme } from "next-themes";
 export default function About() {
   const { theme } = useTheme();
 
+  const monoIcon =
+    theme === "dark" ? "text-white" : "text-gray-800";
+
   const techIcons = [
+    //  BACKEND 
+    { icon: <SiExpress className={monoIcon} />, name: "Express.js" },
+    { icon: <FaPhp className="text-[#777bb4]" />, name: "PHP" },
+    { icon: <FaNodeJs className="text-[#6cc24a]" />, name: "Node.js" },
+    { icon: <SiLaravel className="text-[#ff2d20]" />, name: "Laravel" },
+
+    // FRONTEND 
     { icon: <FaHtml5 className="text-[#e34c26]" />, name: "HTML" },
     { icon: <FaCss3Alt className="text-[#1572B6]" />, name: "CSS" },
     { icon: <FaJsSquare className="text-[#f7df1e]" />, name: "JavaScript" },
-    { icon: <FaReact className="text-[#61DBFB]" />, name: "React" },
-    { icon: <SiNextdotjs className="text-black" />, name: "Next.js" },
-    { icon: <SiTailwindcss className="text-[#38bdf8]" />, name: "Tailwind" },
-    { icon: <FaNodeJs className="text-[#6cc24a]" />, name: "Node.js" },
-    { icon: <SiExpress className="text-black" />, name: "Express.js" },
-    { icon: <SiPostgresql className="text-[#31648c]" />, name: "PostgreSQL" },
-    { icon: <SiPrisma className="text-[#0c344b]" />, name: "Prisma ORM" },
     { icon: <SiTypescript className="text-[#3178c6]" />, name: "TypeScript" },
+    { icon: <FaReact className="text-[#61DBFB]" />, name: "React" },
+    { icon: <SiNextdotjs className={monoIcon} />, name: "Next.js" },
+    { icon: <SiTailwindcss className="text-[#38bdf8]" />, name: "Tailwind CSS" },
+
+    // DATABASE
+    { icon: <SiMysql className="text-[#00758f]" />, name: "MySQL" },
+    { icon: <SiPostgresql className="text-[#31648c]" />, name: "PostgreSQL" },
+
+    // TOOLS 
     { icon: <FaGitAlt className="text-[#f1502f]" />, name: "Git" },
   ];
-
 
   const services = [
     {
@@ -102,28 +116,37 @@ export default function About() {
           viewport={{ once: true }}
         >
           <p>
-            Hi, I’m <b className="text-[#6f1d1b] dark:text-[#e0a899]">M. Hasbianur</b>, a Fullstack Developer who builds
-            end-to-end web applications — from interactive interfaces to fast and scalable backend services.
+            Hi, I’m <b className="text-[#6f1d1b] dark:text-[#e0a899]">M. Hasbianur</b>,
+            a Fullstack Developer focused on building scalable, efficient, and
+            well-structured web applications — from intuitive frontend interfaces
+            to robust backend architectures.
           </p>
 
           <p>
-            I work with technologies like React, Next.js, Node.js, Express, SQL/NoSQL, and modern UI frameworks to deliver
-            efficient, secure, and user-focused digital experiences. I enjoy transforming ideas into products that work smoothly
-            across devices and platforms.
+            I work across both JavaScript and PHP ecosystems, developing modern
+            applications using Node.js, Express, Laravel, React, and Next.js.
+            I have experience designing RESTful APIs, managing relational databases
+            like MySQL and PostgreSQL, and implementing clean, maintainable code
+            that prioritizes performance and user experience.
           </p>
+
+          <p>
+            My goal is to continuously grow as a developer while delivering
+            digital solutions that are reliable, scalable, and impactful.
+          </p>
+
           <div className="mt-8">
             <a
               href="/CV.pdf"
               download="CV-M.Hasbianur.pdf"
               className={`border px-8 py-3 rounded-none uppercase tracking-[2px] font-semibold transition-all duration-300
-                  ${theme === "dark"
+        ${theme === "dark"
                   ? "border-white text-white hover:bg-white hover:text-[#0c1618]"
                   : "border-[#0c1618] text-[#0c1618] hover:bg-[#0c1618] hover:text-white"
                 }`}
             >
               Download CV
             </a>
-
           </div>
         </motion.div>
 
@@ -154,12 +177,15 @@ export default function About() {
           rounded-lg border
           transition-all
           ${theme === "dark"
-                        ? "bg-[#13282c] border-white/10"
-                        : "bg-[#f9fafb] border-black/10"}
+                  ? "bg-[#13282c] border-white/10"
+                  : "bg-[#f9fafb] border-black/10"}
         `}
             >
 
-              <div className="text-3xl sm:text-5xl mb-1">{tech.icon}</div>
+              <div className="text-3xl sm:text-5xl mb-1 p-2 rounded-md">
+                {tech.icon}
+              </div>
+
               <p className="text-sm sm:text-base font-medium text-center">{tech.name}</p>
             </motion.div>
           ))}
