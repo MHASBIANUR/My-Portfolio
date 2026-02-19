@@ -2,7 +2,8 @@
 
 Web Personal adalah website portofolio pribadi yang dirancang untuk menampilkan profil, keterampilan, serta proyek-proyek yang telah saya kerjakan secara profesional dan interaktif. Tujuan utama dari website ini adalah memberikan kesan pertama yang kuat kepada pengunjung, terutama calon klien atau rekruter, melalui desain modern dan pengalaman pengguna yang halus.
 
-✨ **Live Demo:** https://web-personal-eosin.vercel.app/
+✨ **Live Demo:** https://www.h3hasbi.my.id/
+
 
 ---
 
